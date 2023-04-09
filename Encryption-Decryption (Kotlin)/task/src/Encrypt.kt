@@ -22,7 +22,7 @@ object Encrypt {
         println(sb)
     }
 
-    fun keyEncrypt(s: String, inKey: Int) {
+    fun letterKeyEncrypt(s: String, inKey: Int) {
         var key = inKey
         val sb = StringBuilder()
         for (element in s) {
@@ -42,6 +42,15 @@ object Encrypt {
                     (96 + tmpKey).toChar()
                 }
             }
+            sb.append(newChar)
+        }
+        println(sb)
+    }
+
+    fun allKeyEncrypt(message: String, key: Int) {
+        val sb = java.lang.StringBuilder()
+        for (element in message) {
+            val newChar = (element.code + key).toChar()
             sb.append(newChar)
         }
         println(sb)
