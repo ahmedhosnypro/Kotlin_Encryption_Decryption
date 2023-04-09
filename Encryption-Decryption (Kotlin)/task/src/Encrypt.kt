@@ -1,7 +1,7 @@
 package encryptdecrypt
 
 object Encrypt {
-    fun simpleEncrypt() {
+    fun simpleEncrypt(): String {
         val s = "we found a treasure!"
         val sb = StringBuilder()
         for (element in s) {
@@ -19,10 +19,10 @@ object Encrypt {
             }
             sb.append(newChar)
         }
-        println(sb)
+        return sb.toString()
     }
 
-    fun letterKeyEncrypt(s: String, inKey: Int) {
+    fun letterKeyEncrypt(s: String, inKey: Int): String {
         var key = inKey
         val sb = StringBuilder()
         for (element in s) {
@@ -44,15 +44,15 @@ object Encrypt {
             }
             sb.append(newChar)
         }
-        println(sb)
+       return sb.toString()
     }
 
-    fun allKeyEncrypt(message: String, key: Int) {
+    fun allKeyEncrypt(message: String, key: Int): String {
         val sb = java.lang.StringBuilder()
         for (element in message) {
             val newChar = (element.code + key).toChar()
             sb.append(newChar)
         }
-        println(sb)
+        return sb.toString()
     }
 }
