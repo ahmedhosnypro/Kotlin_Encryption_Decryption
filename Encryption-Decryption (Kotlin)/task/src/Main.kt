@@ -1,22 +1,19 @@
 package encryptdecrypt
 
+import encryptdecrypt.Encrypt.keyEncrypt
+
 fun main() {
-    val s = "we found a treasure!"
-    val sb = StringBuilder()
-    for (element in s) {
-        var newChar = element
-        if (element.code in 65..90) {
-            val n = 90 - element.code
-            newChar = if (n < 13) {
-                (90 + n).toChar()
-            } else (65 - (25 - n)).toChar()
-        } else if (element.code in 97..122) {
-            val n = 122 - element.code
-            newChar = if (n < 13) {
-                (97 + n).toChar()
-            } else (122 - (25 - n)).toChar()
-        }
-        sb.append(newChar)
+    val s = readln().trim { it <= ' ' }
+    val keyS = readln().trim { it <= ' ' }
+    var key = 0
+    try {
+        key = keyS.toInt()
+    } catch (e: IllegalArgumentException) {
+        println("enter a number")
     }
-    println(sb)
+    if (key != 0) {
+        keyEncrypt(s, key)
+    } else {
+        println("key shouldn't be zero")
+    }
 }
